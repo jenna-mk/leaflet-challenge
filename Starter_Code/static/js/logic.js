@@ -41,27 +41,27 @@ function createFeatures(earthquakeData) {
 
 function createMap(earthquakes) {
   // Create the base layers
-  var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  let street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   })
 
-  var topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+  let topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
     attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
   });
 
   // Create a baseMaps object
-  var baseMaps = {
+  let baseMaps = {
     "Street Map": street,
     "Topographic Map": topo
   };
 
   // Create an overlays object 
-  var overlayMaps = {
+  let overlayMaps = {
     Earthquakes: earthquakes
   };
 
   // Create a new map
-  var map = L.map("map", {
+  let map = L.map("map", {
     center: [39.82, -98.58],
     zoom: 5,
     layers: [street, earthquakes]
@@ -73,15 +73,15 @@ function createMap(earthquakes) {
   }).addTo(map);
 
   // Create a legend for the map
-  var legend = L.control({
+  let legend = L.control({
     position: "bottomright"
   });
 
   // Add the features of the legend
   legend.onAdd = function(map) {
-    var div = L.DomUtil.create("div", "legend");
-    var depths = [-10, 10, 30, 50, 70, 90];
-    var colors = [
+    let div = L.DomUtil.create("div", "legend");
+    let depths = [-10, 10, 30, 50, 70, 90];
+    let colors = [
       "#00b300",
       "#b3ff66",
       "#ffd633",
